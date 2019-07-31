@@ -1,0 +1,109 @@
+  0   DSP	4		;limit = var[0], item = var[1], count = var[2], i = var[3] 
+  2   LDA	0
+  4   LDC	2000	
+  6   STO			;limit = 2000
+  7   LDA	2
+  9   LDA	0
+ 11   LDV	
+ 12   ANEW
+ 13   STO			;count = memory location of array in heap
+ 14   LDA	3
+ 16   LDC	0
+ 18   STO			;i = 0
+ 19   LDA	3
+ 21   LDV
+ 22   LDA	0
+ 24   LDV
+ 25   CLT			;i < limit?
+ 26   BZE	49		;if false branch
+ 28   LDA	2
+ 30   LDV
+ 31   LDA	3
+ 33   LDV
+ 34   LDXA
+ 35   LDC	0
+ 37   STO			;count[i] = 0
+ 38   LDA	3
+ 40   LDA	3
+ 42   LDV
+ 43   LDC	1
+ 45   ADD
+ 46   STO			;i++
+ 47   BRN	19		;loop
+ 49   PRNS	"First number? \n"
+ 51   LDA	1
+ 53   INPI			;item = [input]
+ 54   LDA	1
+ 56   LDV
+ 57   LDC	0
+ 59   CGT			;item > 0?
+ 60   BZE	100		;branch if false
+ 62   LDA	1
+ 64   LDV
+ 65   LDC	1999
+ 67   CLT			;item < 1999?
+ 68   BZE	91		;branch if false
+ 70   LDA	2
+ 72   LDV
+ 73   LDA	1
+ 75   LDV
+ 76   LDXA		
+ 77   LDA	2
+ 79   LDV
+ 80   LDA	1
+ 82   LDV
+ 83   LDXA
+ 84   LDV
+ 85   LDC	1
+ 87   ADD
+ 88   STO			;count[i]++
+ 89   BRN	93		;loop
+ 91   PRNS	"Number too large \n"
+ 93   PRNS	"Next number (<= 0 stops) \n"
+ 94   LDA	1
+ 97   INPI			;item = [input]
+ 98   BRN	54		;loop
+100   LDA	3
+102   LDC	0
+104   STO			;i = 0
+105   LDA	3
+107   LDV
+108   LDA	0
+110   LDV
+111   CLT			;i < limit?
+112   BZE	153		;branch if false
+114   LDA	2
+116   LDV
+117   LDA	3
+119   LDV
+120   LDXA
+121   LDV
+122   LDC	0
+124   CGT			;count > 0?
+125   BZE	142		;branch if false
+127   LDA	3
+129   LDV
+130   PRNI			;print(i)
+131   LDA	2
+133   LDV
+134   LDA	3
+136   LDV
+137   LDXA
+138   LDV
+139   PRNI			;print(count[i])
+140   PRNS	"\n"
+142   LDA	3
+144   LDA	3
+146   LDV
+147   LDC	1
+149   ADD
+150   STO			;i++
+151   BRN	105		;loop
+153   HALT
+
+
+  
+
+  
+  
+   

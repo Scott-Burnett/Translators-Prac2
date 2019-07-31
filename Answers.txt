@@ -1,0 +1,13 @@
+Task 2:
+a)the code was always checking both X and (!Y && Z) before printing out X || (!Y && Z).
+b)
+c)we made it so that if X is true it will not check (!Y && Z) and just print "true"
+
+task 3:
+as expected, The In-line interpreter ran the code significantly faster than the Push/Pop interpreter. The Push/pop Interpreter makes calls to separate functions which handle the manipulation of the stack, whereas the in-line interpreter handles manipulation of the stack itself. 
+
+task 4:
+as is, this program asks the user for an integer, and then immediately attempts to use this value as an index into an array. There is no code which first checks that this value is within the bounds of the size of the array.
+
+there was a syntactic error in the first line
+

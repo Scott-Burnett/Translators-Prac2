@@ -1,0 +1,105 @@
+ASSEM
+BEGIN
+  {    0 } DSP      4
+  {    2 } LDA      0
+  {    4 } LDC      2000
+  {    6 } STO     
+  {    7 } LDA      2
+  {    9 } LDA      0
+  {   11 } LDV     
+  {   12 } ANEW    
+  {   13 } STO     
+  {   14 } LDA      3
+  {   16 } LDC      0
+  {   18 } STO     
+  {   19 } LDA      3
+  {   21 } LDV     
+  {   22 } LDA      0
+  {   24 } LDV     
+  {   25 } CLT     
+  {   26 } BZE      49
+  {   28 } LDA      2
+  {   30 } LDV     
+  {   31 } LDA      3
+  {   33 } LDV     
+  {   34 } LDXA    
+  {   35 } LDC      0
+  {   37 } STO     
+  {   38 } LDA      3
+  {   40 } LDA      3
+  {   42 } LDV     
+  {   43 } LDC      1
+  {   45 } ADD     
+  {   46 } STO     
+  {   47 } BRN      19
+  {   49 } PRNS     "First number? \n"
+  {   51 } LDA      1
+  {   53 } INPI    
+  {   54 } LDA      1
+  {   56 } LDV     
+  {   57 } LDC      0
+  {   59 } CGT     
+  {   60 } BZE      100
+  {   62 } LDA      1
+  {   64 } LDV     
+  {   65 } LDC      1999
+  {   67 } CLT     
+  {   68 } BZE      91
+  {   70 } LDA      2
+  {   72 } LDV     
+  {   73 } LDA      1
+  {   75 } LDV     
+  {   76 } LDXA    
+  {   77 } LDA      2
+  {   79 } LDV     
+  {   80 } LDA      1
+  {   82 } LDV     
+  {   83 } LDXA    
+  {   84 } LDV     
+  {   85 } LDC      1
+  {   87 } ADD     
+  {   88 } STO     
+  {   89 } BRN      93
+  {   91 } PRNS     "Number too large \n"
+  {   93 } PRNS     "Next number (<= 0 stops) \n"
+  {   95 } LDA      1
+  {   97 } INPI    
+  {   98 } BRN      54
+  {  100 } LDA      3
+  {  102 } LDC      0
+  {  104 } STO     
+  {  105 } LDA      3
+  {  107 } LDV     
+  {  108 } LDA      0
+  {  110 } LDV     
+  {  111 } CLT     
+  {  112 } BZE      153
+  {  114 } LDA      2
+  {  116 } LDV     
+  {  117 } LDA      3
+  {  119 } LDV     
+  {  120 } LDXA    
+  {  121 } LDV     
+  {  122 } LDC      0
+  {  124 } CGT     
+  {  125 } BZE      142
+  {  127 } LDA      3
+  {  129 } LDV     
+  {  130 } PRNI    
+  {  131 } LDA      2
+  {  133 } LDV     
+  {  134 } LDA      3
+  {  136 } LDV     
+  {  137 } LDXA    
+  {  138 } LDV     
+  {  139 } PRNI    
+  {  140 } PRNS     "\n"
+  {  142 } LDA      3
+  {  144 } LDA      3
+  {  146 } LDV     
+  {  147 } LDC      1
+  {  149 } ADD     
+  {  150 } STO     
+  {  151 } BRN      105
+  {  153 } HALT    
+END.
