@@ -1,0 +1,95 @@
+ASSEM
+BEGIN
+  {    0 } DSP      4
+  {    2 } LDA      0
+  {    4 } LDC      256
+  {    6 } STO     
+  {    7 } LDA      2
+  {    9 } LDA      0
+  {   11 } LDV     
+  {   12 } ANEW    
+  {   13 } STO     
+  {   14 } LDA      3
+  {   16 } LDC      0
+  {   18 } STO     
+  {   19 } LDA      3
+  {   21 } LDV     
+  {   22 } LDA      0
+  {   24 } LDV     
+  {   25 } CLT     
+  {   26 } BZE      51
+  {   28 } LDA      2
+  {   30 } LDV     
+  {   31 } LDA      3
+  {   33 } LDV     
+  {   34 } LDXA    
+  {   35 } LDC      0
+  {   37 } STO     
+  {   38 } LDC      0
+  {   40 } LDA      3
+  {   42 } LDA      3
+  {   44 } LDV     
+  {   45 } LDC      1
+  {   47 } ADD     
+  {   48 } STO     
+  {   49 } BRN      19
+  {   51 } LDA      1
+  {   53 } INPC    
+  {   54 } LDA      1
+  {   56 } LDV     
+  {   57 } LDC      46
+  {   59 } CEQ     
+  {   60 } NOT     
+  {   61 } BZE      84
+  {   63 } LDA      2
+  {   65 } LDV     
+  {   66 } LDA      1
+  {   68 } LDV     
+  {   69 } LDXA    
+  {   70 } LDA      2
+  {   72 } LDV     
+  {   73 } LDA      1
+  {   75 } LDV     
+  {   76 } LDXA    
+  {   77 } LDV     
+  {   78 } LDC      1
+  {   80 } ADD     
+  {   81 } STO     
+  {   82 } BRN      51
+  {   84 } LDA      1
+  {   86 } LDC      65
+  {   88 } STO     
+  {   89 } LDA      1
+  {   91 } LDV     
+  {   92 } LDC      90
+  {   94 } CLE     
+  {   95 } BZE      136
+  {   97 } LDA      2
+  {   99 } LDV     
+  {  100 } LDA      1
+  {  102 } LDV     
+  {  103 } LDXA    
+  {  104 } LDV     
+  {  105 } LDC      0
+  {  107 } CGT     
+  {  108 } BZE      125
+  {  110 } LDA      1
+  {  112 } LDV     
+  {  113 } PRNC    
+  {  114 } LDA      2
+  {  116 } LDV     
+  {  117 } LDA      1
+  {  119 } LDV     
+  {  120 } LDXA    
+  {  121 } LDV     
+  {  122 } PRNI    
+  {  123 } PRNS     "\n"
+  {  125 } LDA      1
+  {  127 } LDA      1
+  {  129 } LDV     
+  {  130 } LDC      1
+  {  132 } ADD     
+  {  133 } STO     
+  {  134 } BRN      89
+  {  136 } HALT    
+END.

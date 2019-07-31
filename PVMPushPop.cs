@@ -450,6 +450,13 @@ namespace Assem {
               if (data.Error()) ps = badData;
             }
             break;
+          case PVM.inpc:          // character input
+		    adr = Pop();
+            if (InBounds(adr)) {
+              mem[adr] = ((int) (data.ReadChar()));
+              if (data.Error()) ps = badData;
+            }
+            break;
           case PVM.prnb:          // boolean output
             if (tracing) results.Write(padding);
             if (Pop() != 0) results.Write(" true  "); else results.Write(" false ");
@@ -459,9 +466,14 @@ namespace Assem {
             if (tracing) results.Write(padding);
             loop = Next();
             while (ps == running && mem[loop] != 0) {
-              results.Write((char) mem[loop]); loop--;
+              results.Write((char) (mem[loop])); loop--;
               if (loop < stackBase) ps = badMem;
             }
+            if (tracing) results.WriteLine();
+            break;
+          case PVM.prnc:          // character output
+            if (tracing) results.Write(padding);
+            results.Write((char) Pop());
             if (tracing) results.WriteLine();
             break;
           case PVM.prnl:          // newline
@@ -568,8 +580,6 @@ namespace Assem {
           case PVM.stl_2:         // pop to local variable 2
           case PVM.stl_3:         // pop to local variable 3
           case PVM.stoc:          // character checked store
-          case PVM.inpc:          // character input
-          case PVM.prnc:          // character output
           case PVM.cap:           // toUpperCase
           case PVM.low:           // toLowerCase
           case PVM.islet:         // isLetter
