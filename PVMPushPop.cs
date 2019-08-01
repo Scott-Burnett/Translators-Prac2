@@ -589,6 +589,9 @@ namespace Assem {
             if (InBounds(adr)) Push(adr);
 			break;
           case PVM.ldl:           // push local value
+			adr = cpu.fp - 1 - Next();
+			if (inbounds(adr)) Push(mem[adr]);
+			break;
           case PVM.ldl_0:         // push value of local variable 0
 			adr = cpu.fp - 1;
             if (InBounds(adr)) Push(mem[adr]);
@@ -606,7 +609,13 @@ namespace Assem {
             if (InBounds(adr)) Push(mem[adr]);
 			break;
           case PVM.stl:           // store local value
+			adr = cpu.fp - 1 - Next();
+			if (InBounds(adr)) mem[adr] = Pop();
+			break;
           case PVM.stlc:          // store local value
+			adr = cpu.fp - 1 - Next();
+			if (InBounds(adr)) mem[adr] = Pop();
+			break;
           case PVM.stl_0:         // pop to local variable 0
 			mem[cpu.fp - 1] = Pop();
 			break;
@@ -620,11 +629,26 @@ namespace Assem {
 			mem[cpu.fp - 4] = Pop();
 			break;
           case PVM.stoc:          // character checked store
+			tos ch = Pop();
+			adr = Pop();
+			if (ch < 256 && ch >= 0)
+				if (InBounds(adr)) mem[ard] = tos;
+			break;
           case PVM.cap:           // toUpperCase
+			tos = Pop(); mem[tos] -= 32;
+			break;
           case PVM.low:           // toLowerCase
+			tos = pop(); mem[tos] += 32;
+			break;
           case PVM.islet:         // isLetter
+			tos = Pop();
+			if ((tos > 64 && tos < 91) || (tos > 96 && tos < 123))
           case PVM.inc:           // ++
+			tos = Pop(); mem[tos]++; 
+			break;
           case PVM.dec:           // --
+			tos = Pop(); mem[tos]--; 
+			break;
           default:                // unrecognized opcode
             ps = badOp;
             break;
