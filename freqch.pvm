@@ -53,15 +53,15 @@
  78    LDC    1
  80    ADD
  81    STO            ;            count[ch] = count[ch] + 1;
- 82    BRN    51
+ 82    BRN    51	  ;}
  84    LDA    1
  86    LDC    65
- 88    STO
- 89    LDA    1
+ 88    STO			  ;			ch = 'A';
+ 89    LDA    1		  ; 		while
  91    LDV
  92    LDC    90
- 94    CLE
- 95    BZE    136
+ 94    CLE			  ; 		(ch <= 'Z') {
+ 95    BZE    136	  
  97    LDA    2
  99    LDV
 100    LDA    1
@@ -70,7 +70,7 @@
 104    LDV
 105    LDC    0
 107    CGT
-108    BZE    125
+108    BZE    125	  ;			if(count[ch] > 0)
 110    LDA    1
 112    LDV
 113    PRNC
@@ -88,5 +88,5 @@
 130    LDC    1
 132    ADD
 133    STO
-134    BRN    89
+134    BRN    89	  ; }
 136    HALT
